@@ -1,0 +1,18 @@
+# Include the README and LICENSE at the top level of the source distribution
+include README.md
+include LICENSE
+
+# Include any headers and C++ source files from src/
+recursive-include src *.h *.cpp
+
+# (Optional) If you have example .ply files or data, include them:
+# recursive-include data *.ply
+
+# Exclude any hidden files, compiled objects, etc.
+exclude .DS_Store
+exclude __pycache__/*
+exclude *.pyc
+
+# You can add other excludes or includes as needed:
+# exclude docs/*
+# recursive-include docs *.rst *.md
