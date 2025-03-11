@@ -211,6 +211,8 @@ pybind11::dict read_ply(const std::string &filename)
     return rootDict;
 }
 
+
+
 //-----------------------------------------------------------------
 // write_ply: Writes dict[element_name][property_name] -> NumPy array to a .ply file
 //
@@ -222,6 +224,7 @@ void write_ply(const std::string &filename, const pybind11::dict &pyDict, bool i
 {
     namespace py = pybind11;
     using namespace tinyply;
+    py::module_ np = py::module_::import("numpy");
 
     PlyFile plyFile;
 
@@ -321,7 +324,7 @@ void write_ply(const std::string &filename, const pybind11::dict &pyDict, bool i
 //-----------------------------------------------------------------
 namespace py = pybind11;
 
-PYBIND11_MODULE(tinyplypy, m)
+PYBIND11_MODULE(_tinyplypy_binding, m)
 {
     m.doc() = "Example tinyply <-> NumPy pybind11 binding";
 

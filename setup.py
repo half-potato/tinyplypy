@@ -28,14 +28,14 @@ class get_pybind_include(object):
 ext_modules = [
     Extension(
         # The name of your resulting extension (.so on Linux, .pyd on Windows)
-        "tinyplypy",
+        "tinyplypy._tinyplypy_binding",
         sources=[
-            "src/bindings.cpp",  # your pybind11 bindings
+            "tinyplypy/bindings.cpp",  # your pybind11 bindings
             # If tinyply has its own .cpp, add it here:
-            # "src/tinyply.cpp"
+            # "tinyplypy/tinyply.cpp"
         ],
         include_dirs=[
-            "src",                  # so #include "tinyply.h" works
+            "tinyplypy",                  # so #include "tinyply.h" works
             str(get_pybind_include())  # pybind11 headers
         ],
         # Set any extra compiler flags if you want. 

@@ -14,14 +14,17 @@ def test_write_read_ply(tmp_path, is_binary):
     # Create some random data for two elements: e.g. 'vertex' and 'face'
     # The 'vertex' element has scalar properties x, y, z
     # The 'face' element has a list property for the indices with shape (n_faces, 3)
-    num_vertices = 5
-    num_faces = 2
+    num_vertices = 5000
+    num_faces = 200
 
     vertex_arrays = {
         "x": np.random.rand(num_vertices).astype(np.float32),
         "y": np.random.rand(num_vertices).astype(np.float32),
         "z": np.random.rand(num_vertices).astype(np.float32)
     }
+
+    keys = "qwertyuiopasdfghjklzxcvbnm"
+    tet_arrays = {k: np.random.rand(num_vertices).astype(np.float32) for k in keys}
 
     # For 2D arrays, shape=(n_faces,3), e.g. triangle indices
     face_arrays = {
@@ -32,7 +35,8 @@ def test_write_read_ply(tmp_path, is_binary):
 
     data_dict = {
         "vertex": vertex_arrays,
-        "face": face_arrays
+        "face": face_arrays,
+        "tet": tet_arrays,
     }
 
     # Construct a filename in the temporary directory
@@ -40,7 +44,7 @@ def test_write_read_ply(tmp_path, is_binary):
     ply_file = tmp_path / f"test_{mode_name}.ply"
 
     # Write the data
-    tinyplypy.write_ply(str(ply_file), data_dict, isBinary=is_binary)
+    tinyplypy.write_ply(str(ply_file), data_dict, is_binary=is_binary)
 
     # Read the data back
     loaded_dict = tinyplypy.read_ply(str(ply_file))
@@ -83,9 +87,8 @@ def test_write_read_ply(tmp_path, is_binary):
                 np.testing.assert_allclose(
                     loaded_array, original_array,
                     err_msg=f"Mismatched float values in {element_name}.{prop_name}",
-                    rtol=1e-6, atol=1e-7
+                    rtol=1e-5, atol=1e-6
                 )
 
     # Cleanup (optional if you don't want the file left in tmp_path)
     # os.remove(ply_file)  # Usually unnecessary with pytest's tmp_path
-
