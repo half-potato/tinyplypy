@@ -8,11 +8,11 @@ Written entirely by ChatGPT O1 because `plyfile` is horrifically slow.
 
 - **Read `.ply` files** into a Python nested dictionary:
   ```python
-  data = read_ply("mesh.ply")
+  data = tinyplypy.read_ply("mesh.ply")
   ```
 - Write .ply files from the same nested dictionary structure:
 ```python
-write_ply("mesh_out.ply", data_dict, is_binary=True)
+tinyplypy.write_ply("mesh_out.ply", data_dict, is_binary=True)
 ```
 - Handles scalar properties as 1D NumPy arrays and fixed-size list properties (e.g., face indices) as 2D arrays.
 - Supports both ASCII and binary PLY formats.
