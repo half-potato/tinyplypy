@@ -1,4 +1,4 @@
-# tinyply-numpy-binding
+# tinyplypy
 
 A minimal Python library that provides a [pybind11](https://github.com/pybind/pybind11)-based wrapper around [tinyply](https://github.com/ddiakopoulos/tinyply), allowing you to read/write `.ply` files directly into/from NumPy arrays. This lets you seamlessly integrate PLY geometry data with Python libraries such as NumPy, SciPy, or scikit-learn.
 
@@ -12,7 +12,7 @@ Written entirely by ChatGPT O1 because `plyfile` is horrifically slow.
   ```
 - Write .ply files from the same nested dictionary structure:
 ```python
-write_ply("mesh_out.ply", data_dict, isBinary=True)
+write_ply("mesh_out.ply", data_dict, is_binary=True)
 ```
 - Handles scalar properties as 1D NumPy arrays and fixed-size list properties (e.g., face indices) as 2D arrays.
 - Supports both ASCII and binary PLY formats.
