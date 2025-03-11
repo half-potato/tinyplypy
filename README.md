@@ -16,7 +16,6 @@ write_ply("mesh_out.ply", data_dict, is_binary=True)
 ```
 - Handles scalar properties as 1D NumPy arrays and fixed-size list properties (e.g., face indices) as 2D arrays.
 - Supports both ASCII and binary PLY formats.
-- DATA MUST BE CONTIGUOUS for each element. Not sure how to fix this right now while still handling ownership of the contiguous array correctly.
 ## Installation
 You can install this package from source or via wheel:
 Install pybind11 (required):
