@@ -1,0 +1,6 @@
+setup.py
+tinyplypy/bindings.cpp
+tinyplypy.egg-info/PKG-INFO
+tinyplypy.egg-info/SOURCES.txt
+tinyplypy.egg-info/dependency_links.txt
+tinyplypy.egg-info/top_level.txt

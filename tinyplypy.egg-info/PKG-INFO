@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: tinyplypy
+Version: 0.1.0
+Summary: A tinyply + pybind11 binding to read/write .ply files using NumPy arrays
+Author: Your Name
+Author-email: you@example.com
