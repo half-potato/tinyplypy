@@ -1,6 +1,16 @@
 setup.py
+test.py
+__pycache__/test.cpython-311-pytest-8.3.5.pyc
+tinyplypy/__init__.py
+tinyplypy/_tinyplypy.cpython-311-x86_64-linux-gnu.so
+tinyplypy/_tinyplypy_binding.cpython-311-x86_64-linux-gnu.so
 tinyplypy/bindings.cpp
+tinyplypy/tinyply.h
+tinyplypy/writer.py
 tinyplypy.egg-info/PKG-INFO
 tinyplypy.egg-info/SOURCES.txt
 tinyplypy.egg-info/dependency_links.txt
+tinyplypy.egg-info/not-zip-safe
 tinyplypy.egg-info/top_level.txt
+tinyplypy/__pycache__/__init__.cpython-311.pyc
+tinyplypy/__pycache__/writer.cpython-311.pyc

@@ -51,10 +51,20 @@ setup(
     author="Your Name",
     author_email="you@example.com",
     description="A tinyply + pybind11 binding to read/write .ply files using NumPy arrays",
+    # --------------------------
+    #  (1) Add packages here
+    # --------------------------
+    packages=["tinyplypy"], 
+    # or packages=find_packages(), if you might have more nested packages
+
+    # If you want .h or .cpp included in the distribution/wheel:
+    package_data={
+        "tinyplypy": ["tinyply.h", "writer.py", "bindings.cpp"]
+    },
+    include_package_data=True,
+    # --------------------------
+
     ext_modules=ext_modules,
     cmdclass={"build_ext": build_ext},
-    # If you want to package python modules (none here, just an example):
-    # packages=["your_python_package"],
-    # zip_safe=False,  # for pybind11 extensions
+    zip_safe=False, 
 )
-
